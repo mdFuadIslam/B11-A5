@@ -4,44 +4,87 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dev Board</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
 </head>
-<body>
-    Question-1: What are the different ways to select an element in the DOM?
+<body class='bg-slate-200 poppins-regular'>
+    <header class="py-6">
+        <div class='bg-white mx-35 p-6 flex justify-between items-center text-center rounded-2xl'>
+            <div class='flex gap-2'>
+                <img src="assets/logo.png" alt="logo.png">
+                <div class="text-4xl items-center hidden md:flex ">Dev<span class="font-bold">Board</span></div>
+            </div>
+            <div><button class="btn btn-primary bg-[#3752FD] hover:bg-[#21325E]" onclick="backToHome()">Back to Home</button></div>
+        </div>
+    </header>
 
-    Answer: There are multiple ways to select an element in the DOM.
-    getElementById matches id and selects an unique element, getElementsByClassName matches class name 
-    and returns an array-like object containing all the elements with said class, getElementsByTagName 
-    matches tags and returns an array-like object containing all the elements of same tag, 
-    querySelector matches CSS selectors and returns ONLY the first element that matches the selector, 
-    and querySelectorAll does the same thing as querySelector but returns all matched elements.
+    <main class="pb-10">
+        <p class="text-4xl font-bold text-center pb-10">Blogs</p>
 
-    Question-2: What is the difference between innerHTML, innerText, and textContent ?
-
-    Answer: innerHTML returns a snippet of the entire HTML within the element, so not only it includes content
-    but also stuff like comments which generally do not show up on websites. It includes tags as well.
-    Meanwhile, innerText returns ONLY the text content within the elements. While textContent is same as innerText but in addition to visible texts
-    it will also include hidden ones as well. For example: a text within a hidden div will be shown
-    neither in the website nor in the console when using innerText but will be shown in the console when using textContent.
-
-    Question-3: What is event delegation in the DOM?
-
-    Answer: Instead of repeating the eventListener action for each element we can use it on the parent element to 
-    achieve the same result, this is called event delegation. It saves computation power and reduces memory usage.
-
-    Question-4: What is event bubbling in the DOM?
-
-    Answer: To detect an event the browser starts from the root(document) and goes down to the child element, upon
-    detecting the child element that triggered the event, it starts coming back to root(document) while checking for additional
-    event triggers, this is called event bubbling.
-
-    Question-5: How do you create, add, and remove elements using JavaScript?
-
-    Answer: To create an element we use .createElement. Newly created element can be modified using various command such as
-    .innerHTML and so on. To add a new element we can use either .appendchild or .append. Lastly, to remove
-    an element we use .removeChild.
-
-
-
-
+        <div class="grid grid-cols-1 gap-4 mx-35">
+            <div class="bg-white p-4 rounded-2xl">
+                <div class="text-2xl font-bold border-b border-dotted border-slate-200 p-4">
+                    Question-1: What are the different ways to select an element in the DOM?
+                </div>
+                <div class="text-lg font-regular p-4">
+                    Answer: There are multiple ways to select an element in the DOM.
+                    getElementById matches id and selects an unique element, getElementsByClassName matches class name 
+                    and returns an array-like object containing all the elements with said class, getElementsByTagName 
+                    matches tags and returns an array-like object containing all the elements of same tag, 
+                    querySelector matches CSS selectors and returns ONLY the first element that matches the selector, 
+                    and querySelectorAll does the same thing as querySelector but returns all matched elements.
+                </div>
+            </div>
+            <div class="bg-white p-4 rounded-2xl">
+                <div class="text-2xl font-bold border-b border-dotted border-slate-200 p-4">
+                    Question-2: What is the difference between innerHTML, innerText, and textContent ?
+                </div>
+                <div class="text-lg font-regular p-4">
+                    Answer: innerHTML returns a snippet of the entire HTML within the element, so not only it includes content
+                    but also stuff like comments which generally do not show up on websites. It includes tags as well.
+                    Meanwhile, innerText returns ONLY the text content within the elements. While textContent is same as innerText but in addition to visible texts
+                    it will also include hidden ones as well. For example: a text within a hidden div will be shown
+                    neither in the website nor in the console when using innerText but will be shown in the console when using textContent.
+                </div>
+            </div>
+            <div class="bg-white p-4 rounded-2xl">
+                <div class="text-2xl font-bold border-b border-dotted border-slate-200 p-4">
+                    Question-3: What is event delegation in the DOM?
+                </div>
+                <div class="text-lg font-regular p-4">
+                    Answer: Instead of repeating the eventListener action for each element we can use it on the parent element to 
+                    achieve the same result, this is called event delegation. It saves computation power and reduces memory usage.
+                </div>
+            </div>
+            <div class="bg-white p-4 rounded-2xl">
+                <div class="text-2xl font-bold border-b border-dotted border-slate-200 p-4">
+                    Question-4: What is event bubbling in the DOM?
+                </div>
+                <div class="text-lg font-regular p-4">
+                    Answer: To detect an event the browser starts from the root(document) and goes down to the child element, upon
+                    detecting the child element that triggered the event, it starts coming back to root(document) while checking for additional
+                    event triggers, this is called event bubbling.
+                </div>
+            </div>
+            <div class="bg-white p-4 rounded-2xl">
+                <div class="text-2xl font-bold border-b border-dotted border-slate-200 p-4">
+                    Question-5: How do you create, add, and remove elements using JavaScript?
+                </div>
+                <div class="text-lg font-regular p-4">
+                    Answer: To create an element we use .createElement. Newly created element can be modified using various command such as
+                    .innerHTML and so on. To add a new element we can use either .appendchild or .append. Lastly, to remove
+                    an element we use .removeChild.
+                </div>
+            </div>
+        </div>
+    </main>
 </body>
 </html>
