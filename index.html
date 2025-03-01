@@ -27,7 +27,7 @@
                     <div><img src="assets/checkbox.png" alt="checkbox.png"></div>
                     <div id="completed-tasks" class="font-bold text-center text-3xl">23</div>
                 </div>
-                <div class="p-2.5 bg-slate-200 rounded-full" id="theme-btn"><img src="assets/theme-btn.png" alt="theme-btn.png"></div>
+                <button class="p-2.5 bg-slate-200 rounded-full" onclick="themeChange()"><img src="assets/theme-btn.png" alt="theme-btn.png"></button>
             </div>
         </div>
     </header>
@@ -39,7 +39,7 @@
                     <div class="p-3 bg-white rounded-full"><img src="assets/checkbox.png" alt="checkbox.png"></div>
                     <div>
                         <p class="text-base text-[#00303C] font-medium">Task Assigned</p>
-                        <span class="text-3xl text-[#00303C] font-bold">05</span>
+                        <span id="remaining-tasks" class="text-3xl text-[#00303C] font-bold">06</span>
                     </div>
                 </div>
                 <button onclick="gotoQA()" class="col-span-3 flex items-center gap-6 p-7 bg-gradient-to-r from-[#3752FD] to-[#9BA8F8] rounded-2xl transition duration-400 ease-in-out hover:from-[#21325E]">
@@ -48,15 +48,18 @@
                 </button>
                 <div class="flex gap-2 bg-slate-200 rounded-2xl justify-center items-center gap-6">
                     <div class="p-3 bg-white rounded-full"><img src="assets/calender.png" alt="calender.png"></div>
-                    <div class="text-xl text-[#00303C] font-regular">day,<br><span class="font-bold">date</span></div>
+                    <div>
+                        <div class="text-xl text-[#00303C] font-regular" id="day">day,</div>
+                        <div class="text-xl text-[#00303C] font-bold" id="date">date</div>
+                    </div>
                 </div>
             </div>
             <div class="grid grid-cols-3 gap-4 p-6">
-                <div class="bg-slate-200 rounded-2xl p-4 flex flex-col gap-2" id="task-1">
+                <div class="bg-slate-200 rounded-2xl p-4 flex flex-col gap-2">
                     <div class="bg-white rounded-xl p-2 w-max">
                         <p class="text-base text-[#00303C] font-regular">ShopeEase</p>
                     </div>
-                    <p class="text-2xl text-[#00303C] font-medium">Fix Mobile Button Issue </p>
+                    <p class="text-2xl text-[#00303C] font-medium" id="task-1">Fix Mobile Button Issue </p>
                     <div class="bg-white rounded-2xl p-4 h-23 overflow-auto">
                         <p class="text-base text-[#000000] font-regular">Debug using Chrome DevTools, check for overlapping elements, and ensure onClick works properly
                             and ensure onClick works properly</p>
@@ -66,14 +69,14 @@
                             <p class="text-sm text-[#00303C] font-regular">Deadline</p>
                             <p class="text-base text-[#00303C] font-medium">21 March 2025</p>
                         </div>
-                        <div><button class="btn btn-primary bg-[#3752FD] hover:bg-[#21325E]" onclick="completeTask('task-1')">Completed</button></div>
+                        <div><button class="btn btn-primary bg-[#3752FD] hover:bg-[#21325E]"onclick="completeTask('task-1','btnTask-1')" id="btnTask-1">Completed</button></div>
                     </div>
                 </div>
-                <div class="bg-slate-200 rounded-2xl p-4 flex flex-col gap-2" id="task-2">
+                <div class="bg-slate-200 rounded-2xl p-4 flex flex-col gap-2">
                     <div class="bg-white rounded-xl p-2 w-max">
                         <p class="text-base text-[#00303C] font-regular">CloudSync</p>
                     </div>
-                    <p class="text-2xl text-[#00303C] font-medium">Add Dark Mode</p>
+                    <p class="text-2xl text-[#00303C] font-medium" id="task-2">Add Dark Mode</p>
                     <div class="bg-white rounded-2xl p-4 h-23 overflow-auto">
                         <p class="text-base text-[#000000] font-regular">Store the user's preference in localStorage, update CSS variables dynamically, and apply a smooth transition effect.</p>
                     </div>
@@ -82,14 +85,14 @@
                             <p class="text-sm text-[#00303C] font-regular">Deadline</p>
                             <p class="text-base text-[#00303C] font-medium">21 March 2025</p>
                         </div>
-                        <div><button class="btn btn-primary bg-[#3752FD] hover:bg-[#21325E]" onclick="completeTask('task-2')">Completed</button></div>
+                        <div><button class="btn btn-primary bg-[#3752FD] hover:bg-[#21325E]" onclick="completeTask('task-2','btnTask-2')" id="btnTask-2">Completed</button></div>
                     </div>
                 </div>
-                <div class="bg-slate-200 rounded-2xl p-4 flex flex-col gap-2" id="task-3">
+                <div class="bg-slate-200 rounded-2xl p-4 flex flex-col gap-2">
                     <div class="bg-white rounded-xl p-2 w-max">
                         <p class="text-base text-[#00303C] font-regular">SwiftPay</p>
                     </div>
-                    <p class="text-2xl text-[#00303C] font-medium">Optimize  Home page </p>
+                    <p class="text-2xl text-[#00303C] font-medium" id="task-3">Optimize  Home page </p>
                     <div class="bg-white rounded-2xl p-4 h-23 overflow-auto">
                         <p class="text-base text-[#000000] font-regular">Debug using Chrome DevTools, check for overlapping elements, and ensure onClick works properly
                             and ensure onClick works properly</p>
@@ -99,14 +102,14 @@
                             <p class="text-sm text-[#00303C] font-regular">Deadline</p>
                             <p class="text-base text-[#00303C] font-medium">21 March 2025</p>
                         </div>
-                        <div><button class="btn btn-primary bg-[#3752FD] hover:bg-[#21325E]" onclick="completeTask('task-3')">Completed</button></div>
+                        <div><button class="btn btn-primary bg-[#3752FD] hover:bg-[#21325E]" onclick="completeTask('task-3','btnTask-3')" id="btnTask-3">Completed</button></div>
                     </div>
                 </div>
-                <div class="bg-slate-200 rounded-2xl p-4 flex flex-col gap-2" id="task-4">
+                <div class="bg-slate-200 rounded-2xl p-4 flex flex-col gap-2">
                     <div class="bg-white rounded-xl p-2 w-max">
                         <p class="text-base text-[#00303C] font-regular">Meta</p>
                     </div>
-                    <p class="text-2xl text-[#00303C] font-medium">Add new emoji 🤲</p>
+                    <p class="text-2xl text-[#00303C] font-medium" id="task-4">Add new emoji 🤲</p>
                     <div class="bg-white rounded-2xl p-4 h-23 overflow-auto">
                         <p class="text-base text-[#000000] font-regular">Debug using Chrome DevTools, check for overlapping elements, and ensure onClick works properly
                             and ensure onClick works properly</p>
@@ -116,14 +119,14 @@
                             <p class="text-sm text-[#00303C] font-regular">Deadline</p>
                             <p class="text-base text-[#00303C] font-medium">21 March 2025</p>
                         </div>
-                        <div><button class="btn btn-primary bg-[#3752FD] hover:bg-[#21325E]" onclick="completeTask('task-4')">Completed</button></div>
+                        <div><button class="btn btn-primary bg-[#3752FD] hover:bg-[#21325E]" onclick="completeTask('task-4','btnTask-4')" id="btnTask-4">Completed</button></div>
                     </div>
                 </div>
-                <div class="bg-slate-200 rounded-2xl p-4 flex flex-col gap-2" id="task-5">
+                <div class="bg-slate-200 rounded-2xl p-4 flex flex-col gap-2">
                     <div class="bg-white rounded-xl p-2 w-max">
                         <p class="text-base text-[#00303C] font-regular">Google LLC</p>
                     </div>
-                    <p class="text-2xl text-[#00303C] font-medium">Integrate OpenAI API</p>
+                    <p class="text-2xl text-[#00303C] font-medium" id="task-5">Integrate OpenAI API</p>
                     <div class="bg-white rounded-2xl p-4 h-23 overflow-auto">
                         <p class="text-base text-[#000000] font-regular">Debug using Chrome DevTools, check for overlapping elements, and ensure onClick works properly
                             and ensure onClick works properly</p>
@@ -133,14 +136,14 @@
                             <p class="text-sm text-[#00303C] font-regular">Deadline</p>
                             <p class="text-base text-[#00303C] font-medium">21 March 2025</p>
                         </div>
-                        <div><button class="btn btn-primary bg-[#3752FD] hover:bg-[#21325E]" onclick="completeTask('task-5')">Completed</button></div>
+                        <div><button class="btn btn-primary bg-[#3752FD] hover:bg-[#21325E]" onclick="completeTask('task-5','btnTask-5')" id="btnTask-5">Completed</button></div>
                     </div>
                 </div>
-                <div class="bg-slate-200 rounded-2xl p-4 flex flex-col gap-2" id="task-6">
+                <div class="bg-slate-200 rounded-2xl p-4 flex flex-col gap-2">
                     <div class="bg-white rounded-xl p-2 w-max">
                         <p class="text-base text-[#00303C] font-regular">Glassdoor</p>
                     </div>
-                    <p class="text-2xl text-[#00303C] font-medium">Improve Job searching </p>
+                    <p class="text-2xl text-[#00303C] font-medium" id="task-6">Improve Job searching </p>
                     <div class="bg-white rounded-2xl p-4 h-23 overflow-auto">
                         <p class="text-base text-[#000000] font-regular">Debug using Chrome DevTools, check for overlapping elements, and ensure onClick works properly
                             and ensure onClick works properly</p>
@@ -150,7 +153,7 @@
                             <p class="text-sm text-[#00303C] font-regular">Deadline</p>
                             <p class="text-base text-[#00303C] font-medium">21 March 2025</p>
                         </div>
-                        <div><button class="btn btn-primary bg-[#3752FD] hover:bg-[#21325E]" onclick="completeTask('task-6')">Completed</button></div>
+                        <div><button class="btn btn-primary bg-[#3752FD] hover:bg-[#21325E]" onclick="completeTask('task-6','btnTask-6')" id="btnTask-6">Completed</button></div>
                     </div>
                 </div>
             </div>
@@ -163,8 +166,7 @@
                 </div>
                 <button class="btn btn-primary bg-[#3752FD] hover:bg-[#21325E]" onclick="clearHistory()">Clear History</button>
             </div>
-            <div class="flex flex-col items-center justify-center p-2 m-4 gap-4 bg-slate-200 rounded-2xl">
-                You have Complete The Task taskName at timeNow
+            <div id="activities">
             </div>
         </div>
     </main>
