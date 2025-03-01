@@ -19,7 +19,19 @@ function completeTask(taskId, btnId) {
 
     const activity = document.createElement("div");
     activity.className = "flex flex-col items-center justify-center p-2 m-4 gap-4 bg-slate-200 rounded-2xl";
-    const currentTime = new Date().toLocaleTimeString();
+    var date = new Date();
+    var hh = date.getHours();
+    var mm = date.getMinutes();
+    var ss = date.getSeconds();
+    var ampm = hh >= 12 ? 'PM' : 'AM';
+    if (hh > 12) {
+        hh -= 12;
+    }
+    else if (hh == 0) {
+        hh = 12;
+    }
+    const currentTime = hh+':'+mm+':'+ss+' '+ampm;
+    console.log(currentTime);
     activity.textContent = 'You have completed the task ' + task + 'at ' + currentTime;
     document.getElementById("activities").appendChild(activity);
 
@@ -43,8 +55,12 @@ function themeChange() {
 }
 
 const date = new Date();
-const day = date.toLocaleString('default', { weekday: 'short' });
-const dateNum = date.toLocaleString('default', { day: '2-digit', month: '2-digit', year: '2-digit' });
+week = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+const day =week[date.getDay()];
+const dd= date.getDate();
+const mm= date.getMonth() + 1;
+const yy= date.getFullYear();
+const dateNum = dd + "/" + mm + "/" + yy;
 console.log(day, dateNum);
 document.getElementById("day").innerText = day+',';
 document.getElementById("date").innerText = dateNum;
