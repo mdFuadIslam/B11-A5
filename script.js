@@ -37,8 +37,8 @@ function clearHistory() {
 }
 
 function themeChange() {
-    var color = "#"+((Math.random()*0xffffff)<<0).toString(16);
-    document.body.style.backgroundColor = color;
+    var color = "#"+(Math.floor(Math.random()*0xffffff)).toString(16);
+    document.getElementsByTagName("body")[0].style.backgroundColor = color;
 
 }
 

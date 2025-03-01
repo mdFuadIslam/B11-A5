@@ -17,7 +17,7 @@
 </head>
 <body class='bg-slate-200 poppins-regular'>
     <header class="py-6">
-        <div class='bg-white mx-35 p-6 flex justify-between items-center text-center rounded-2xl'>
+        <div class='bg-white mx-8 md:mx-35 p-6 flex justify-between items-center text-center rounded-2xl'>
             <div class='flex gap-2'>
                 <img src="assets/logo.png" alt="logo.png">
                 <div class="text-4xl items-center hidden md:flex ">Dev<span class="font-bold">Board</span></div>
@@ -32,9 +32,9 @@
         </div>
     </header>
 
-    <main class="grid grid-cols-5 gap-2 mx-35 pb-10">
+    <main class="grid grid-cols-1 md:grid-cols-5 gap-2 mx-8 md:mx-35 pb-10">
         <div class="bg-white col-span-4 rounded-2xl">
-            <div class="grid grid-cols-5 gap-4 p-6 border-b border-dotted border-slate-200">
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-4 p-6 border-b border-dotted border-slate-200">
                 <div class="flex gap-2 bg-slate-200 rounded-2xl justify-center items-center">
                     <div class="p-3 bg-white rounded-full"><img src="assets/checkbox.png" alt="checkbox.png"></div>
                     <div>
@@ -42,7 +42,7 @@
                         <span id="remaining-tasks" class="text-3xl text-[#00303C] font-bold">06</span>
                     </div>
                 </div>
-                <button onclick="gotoQA()" class="col-span-3 flex items-center gap-6 p-7 bg-gradient-to-r from-[#3752FD] to-[#9BA8F8] rounded-2xl transition duration-400 ease-in-out hover:from-[#21325E]">
+                <button onclick="gotoQA()" class="md:col-span-3 flex items-center gap-6 p-7 bg-gradient-to-r from-[#3752FD] to-[#9BA8F8] rounded-2xl transition duration-400 ease-in-out hover:from-[#21325E]">
                     <img src="assets/board.png" alt="board.png">
                     <p class="text-xl text-white font-medium">Discover Something New Today!</p>
                 </button>
@@ -54,7 +54,7 @@
                     </div>
                 </div>
             </div>
-            <div class="grid grid-cols-3 gap-4 p-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 p-6">
                 <div class="bg-slate-200 rounded-2xl p-4 flex flex-col gap-2">
                     <div class="bg-white rounded-xl p-2 w-max">
                         <p class="text-base text-[#00303C] font-regular">ShopeEase</p>
